@@ -24,10 +24,10 @@ class Characters extends Component {
         fetch(url)
         .then(res => res.json())
         .then(characters => {
-            characters.map(character => character).forEach((elem) => {
-                if(elem.gender === 'female') {
-                  console.log(elem)
-                }})
+            characters.map(character => console.log(character))//.forEach((elem) => {
+        //         if(elem.gender === 'female') {
+        //           console.log(elem)
+        //         }})
         })
     }
 }
