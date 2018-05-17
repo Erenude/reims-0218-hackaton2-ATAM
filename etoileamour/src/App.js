@@ -4,6 +4,7 @@ import './App.css';
 import Characters from './components/Characters'
 import Logo from './components/Carousel'
 import Slogan from './components/Slogan';
+import RandomSentence from './components/RandomSentence';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
         <Logo />
         <Slogan />
         <Characters />
+        <RandomSentence />
       </div>
     );
   }
