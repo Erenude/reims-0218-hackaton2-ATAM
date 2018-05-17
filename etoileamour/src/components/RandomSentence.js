@@ -17,16 +17,24 @@ const getRandomSentence = () => {
   return sentences[Math.floor(Math.random() * (sentences.length - 1))];
 }
 
-const chosenSentence = getRandomSentence()
-
 class RandomSentence extends Component {
   constructor() {
     super();
     this.state = {
-      chosenSentence: chosenSentence
+      chosenSentence: ''
     };
   }
   
+componentWillReceiveProps (props) {
+  console.log(props)
+  console.log(this.props)
+  if (props.displaySentence) {
+    this.setState ({
+      chosenSentence: getRandomSentence()
+    })
+  }
+}
+
   render() { 
     return ( 
       <div>

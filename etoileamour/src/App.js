@@ -20,7 +20,7 @@ class App extends Component {
         <Logo />
         <Slogan />
         <Characters />
-        <RandomSentence />
+        <RandomSentence displaySentence = {false}/>
       </div>
     );
   }
