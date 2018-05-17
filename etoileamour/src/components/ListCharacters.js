@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Card, Row, Col, CardTitle, CardBody, ListGroup } from 'reactstrap';
+import React from 'react'
+import { ListGroup } from 'reactstrap';
 import Character from './Character'
 
 const ListCharacters = ({characters}) => <ListGroup>
