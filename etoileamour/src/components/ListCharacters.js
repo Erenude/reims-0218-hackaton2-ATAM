@@ -3,7 +3,7 @@ import { ListGroup } from 'reactstrap';
 import Character from './Character'
 
 const ListCharacters = ({characters}) => <ListGroup>
-	{ characters.map( (character, index) => <Character key={index} {...character} />) }
+	{ <Character {...characters} /> }
 </ListGroup>
 
 export default ListCharacters

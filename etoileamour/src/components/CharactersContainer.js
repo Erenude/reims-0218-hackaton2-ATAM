@@ -40,8 +40,8 @@ class CharactersContainer extends Component {
 
     render() {
         return <Container>
-          <ListCharacters characters={this.state.colLeft}/>
-           <ListCharacters characters={this.state.colRight}/>
+          <ListCharacters characters={this.state.persoLeft}/>
+           <ListCharacters characters={this.state.persoRight}/>
           <Button onClick={this.randomCharacters}> Coucou la famille </Button>
       </Container>
     }
