@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Card, Row, Col, CardTitle, CardBody } from 'reactstrap';
+import React from 'react'
+import { Card, CardBody } from 'reactstrap';
 
 const Character = ({ name, image }) => <Card>
         <CardBody> <img src = { image } alt = { name } className = "img-fluid imgCharacter"/>
