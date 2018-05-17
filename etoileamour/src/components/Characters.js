@@ -23,7 +23,9 @@ class Characters extends Component {
         const url = 'https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json'
         fetch(url)
         .then(res => res.json())
-        .then(characters => console.log(characters))
+        .then(characters => {
+            characters.map(character => console.log(character)
+        )})
     }
 }
 
