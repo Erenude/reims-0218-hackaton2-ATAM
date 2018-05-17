@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Characters from './components/Characters'
+import CharactersContainer from './components/CharactersContainer'
 import Logo from './components/Carousel'
 import Slogan from './components/Slogan';
 
@@ -18,7 +18,7 @@ class App extends Component {
         </p>
         <Logo />
         <Slogan />
-        <Characters />
+        <CharactersContainer />
       </div>
     );
   }
