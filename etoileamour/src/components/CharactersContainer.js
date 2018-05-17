@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import Character from './Character'
+import { Container, Button } from 'reactstrap';
+import ListCharacters from './ListCharacters'
 
-class Characters extends Component {
+class CharactersContainer extends Component {
 
     constructor() {
         super()
@@ -15,10 +16,11 @@ class Characters extends Component {
         }
     }
     render() {
-        return <div>
-            { this.state.loading && <p>Loading</p> }
-            <p>Character: {this.state.characters.name}</p>
-            </div>
+        return <Container>
+          <ListCharacters characters={this.state.colLeft}/>
+           <ListCharacters characters={this.state.colRight}/>
+          <Button />
+      </Container>
     }
 
     componentDidMount() {
@@ -37,4 +39,4 @@ class Characters extends Component {
     }
 }
 
-export default Characters
+export default CharactersContainer
