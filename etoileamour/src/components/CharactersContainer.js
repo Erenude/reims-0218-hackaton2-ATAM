@@ -3,6 +3,7 @@ import { Container, Button } from 'reactstrap';
 import ListCharacters from './ListCharacters'
 import TestHidden from './TestHidden'
 import Carousel from './Carousel'
+import RandomSentence from './RandomSentence'
 
 class CharactersContainer extends Component {
 
@@ -52,6 +53,7 @@ class CharactersContainer extends Component {
           <ListCharacters characters={this.state.persoLeft}/>
            <ListCharacters characters={this.state.persoRight}/>
           <Button onClick={this.randomCharacters}> Coucou</Button>
+          <RandomSentence displaySentence = {true}/>
       </Container>
     }
 

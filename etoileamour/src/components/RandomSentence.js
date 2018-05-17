@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 
 const sentences = [
-  
-    'Félicitation, vous êtes fait l\'un pour l\'autre', 
+    'Félicitation, vous êtes fait l\'un pour l\'autre',
     'L\'empire vous félicite et a hâte d\'assister à votre mariage',
     'Bravo, vous allez mettre au monde plein de beau bébé',
     'Vous en avez rêvé, l\'empire l\'a fait : vous êtes unis pour la vie',
@@ -10,11 +9,10 @@ const sentences = [
     'Le feu de la passion brûle en vous',
     'Votre amour sera plus fort que la force',
     'Votre amour viendra à bout du côté obscur, enfin pas trop quand même !'
-  
 ];
 
 const getRandomSentence = () => {
-  return sentences[Math.floor(Math.random() * (sentences.length - 1))];
+  return sentences[Math.floor(Math.random() * (sentences.length - 1))]
 }
 
 class RandomSentence extends Component {
@@ -22,9 +20,9 @@ class RandomSentence extends Component {
     super();
     this.state = {
       chosenSentence: ''
-    };
+    }
   }
-  
+
 componentWillReceiveProps (props) {
   console.log(props)
   console.log(this.props)
@@ -35,8 +33,8 @@ componentWillReceiveProps (props) {
   }
 }
 
-  render() { 
-    return ( 
+  render() {
+    return (
       <div>
       {this.state.chosenSentence}
       </div>
