@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
-import { Card, Row, Col, CardTitle, CardBody } from 'reactstrap';
+import { Card, Row, Col, CardTitle, CardBody, ListGroup } from 'reactstrap';
 import Character from './Character'
 
-class ListCharacters extends Component {
-    render() {
-        return <Card>
+const ListCharacters = ({characters}) => <ListGroup>
+	{ characters.map( (character, index) => <Character key={index} {...character} />) }
+</ListGroup>
 
-			</Card>
-		}
-}
-
-export default Character
+export default ListCharacters
