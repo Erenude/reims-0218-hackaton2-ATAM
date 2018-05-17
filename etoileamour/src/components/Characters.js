@@ -6,6 +6,8 @@ class Characters extends Component {
         super()
         this.state = {
             loading: true,
+            colLeft: [],
+            colRight: [],
             characters: {
                 name: ''
             }
@@ -24,10 +26,12 @@ class Characters extends Component {
         fetch(url)
         .then(res => res.json())
         .then(characters => {
-            characters.map(character => character).forEach((elem) => {
-                if(elem.gender === 'female') {
-                  console.log(elem)
-                }})
+            const colLeft = characters.filter(character => character.id < 44)
+            const colRight = characters.filter(character => character.id > 44)
+            this.setState({
+              colLeft,
+              colRight
+            })
         })
     }
 }
