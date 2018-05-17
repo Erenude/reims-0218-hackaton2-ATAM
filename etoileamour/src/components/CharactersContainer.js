@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Container, Button } from 'reactstrap';
 import ListCharacters from './ListCharacters'
+import TestHidden from './TestHidden'
 
 class CharactersContainer extends Component {
 
     constructor() {
         super()
         this.state = {
-            loading: true,
+            beforeClickButton: true,
             colLeft: [],
             colRight: [],
             persoLeft: [],
@@ -25,7 +26,8 @@ class CharactersContainer extends Component {
       console.log(this.state.colLeft.forEach((user) => {
         if (user.id === leftColumn) {
           this.setState({
-            persoLeft: user
+            persoLeft: user,
+            beforeClickButton: false
           })
         }
       }))
@@ -39,6 +41,10 @@ class CharactersContainer extends Component {
     }
 
     render() {
+      if (this.state.beforeClickButton) {
+        return <div><TestHidden />
+          <Button onClick={this.randomCharacters}> Coucou la famille </Button></div>
+      }
         return <Container>
           <ListCharacters characters={this.state.persoLeft}/>
            <ListCharacters characters={this.state.persoRight}/>
