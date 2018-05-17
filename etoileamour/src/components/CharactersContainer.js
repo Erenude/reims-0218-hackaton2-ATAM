@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container, Button } from 'reactstrap';
 import ListCharacters from './ListCharacters'
 import TestHidden from './TestHidden'
+import Carousel from './Carousel'
 
 class CharactersContainer extends Component {
 
@@ -42,13 +43,15 @@ class CharactersContainer extends Component {
 
     render() {
       if (this.state.beforeClickButton) {
-        return <div><TestHidden />
-          <Button onClick={this.randomCharacters}> Coucou la famille </Button></div>
+        return <div>
+          <Carousel />
+          <TestHidden />
+          <Button onClick={this.randomCharacters}> Coucou</Button></div>
       }
         return <Container>
           <ListCharacters characters={this.state.persoLeft}/>
            <ListCharacters characters={this.state.persoRight}/>
-          <Button onClick={this.randomCharacters}> Coucou la famille </Button>
+          <Button onClick={this.randomCharacters}> Coucou</Button>
       </Container>
     }
 

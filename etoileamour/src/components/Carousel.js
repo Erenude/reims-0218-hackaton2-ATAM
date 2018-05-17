@@ -22,6 +22,6 @@ const items = [
   }
 ];
 
-const Logo = () => <UncontrolledCarousel items={items} />;
+const Carousel = () => <UncontrolledCarousel items={items} />;
 
-export default Logo;
+export default Carousel;
