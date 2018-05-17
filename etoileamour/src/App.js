@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Characters from './components/Characters'
 import Logo from './components/Carousel'
+import Slogan from './components/Slogan';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Logo />
+        <Slogan />
         <Characters />
       </div>
     );
