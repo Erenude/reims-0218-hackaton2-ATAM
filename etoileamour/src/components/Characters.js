@@ -26,7 +26,7 @@ class Characters extends Component {
         fetch(url)
         .then(res => res.json())
         .then(characters => {
-            const colLeft = characters.filter(character => character.id < 44)
+            const colLeft = characters.filter(character => character.id <= 44)
             const colRight = characters.filter(character => character.id > 44)
             this.setState({
               colLeft,
