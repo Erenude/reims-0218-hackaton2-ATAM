@@ -11,6 +11,7 @@ const sentences = [
     'Votre amour viendra à bout du côté obscur, enfin pas trop quand même !',
     'Cet amour sera même plus fort que l\'amour entre Dorian et Khalid',
     'Ca va envoyer dans le lit !',
+		'Votre amour sera plus fort que l\'amour entre Thomas et Flash',
     ''
 ]
 

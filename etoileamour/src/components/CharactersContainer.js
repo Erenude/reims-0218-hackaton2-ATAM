@@ -14,7 +14,8 @@ class CharactersContainer extends Component {
             colRight: [],
             persoLeft: [],
             persoRight: [],
-            characters: []
+            characters: [],
+            buttonStopAndMatch: false
         }
         this.randomCharacters = this.randomCharacters.bind(this)
         this.vitesseFois100 = this.vitesseFois100.bind(this)
@@ -44,11 +45,14 @@ class CharactersContainer extends Component {
 
 vitesseFois100() {
   clearInterval(this.eventRandomImage)
-  this.eventRandomImage = setInterval(this.randomCharacters, 500)
+  this.eventRandomImage = setInterval(this.randomCharacters, 1500)
 }
 
 boutonStopImage() {
   clearInterval(this.eventRandomImage)
+  this.setState({
+    buttonStopAndMatch: true
+  })
 }
 
 
@@ -56,7 +60,25 @@ boutonStopImage() {
       if (this.state.beforeClickButton) {
         return <div>
           <TestHidden />
-          <Button onClick={this.randomCharacters}> Coucou </Button></div>
+          <Button onClick={this.randomCharacters}> Commencer la reproduction </Button></div>
+      }
+      if (this.state.buttonStopAndMatch === true) {
+        return <Container>
+            <h1> {this.state.persoLeft.name} & {this.state.persoRight.name} </h1>
+            <Row className="justify-content-center">
+              <Col xs="4" className="m-1">
+            <ListCharacters characters={this.state.persoLeft}/>
+          </Col>
+            <Col xs="3" className="m-1">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/CG_Heart.gif" className="img-fluid" alt="heart"/>
+            </Col>
+            <Col xs="4" className="m-1">
+            <ListCharacters characters={this.state.persoRight}/>
+          </Col>
+        </Row>
+            <RandomSentence displaySentence = {true}/>
+             <Button onClick={this.boutonStopImage} color="danger" className="m-2"> La petite phrase sympatoche </Button>
+          </Container>
       }
         return <Container>
           <Row className="justify-content-center">
@@ -69,7 +91,6 @@ boutonStopImage() {
             <div className="mx-auto">
               <Button onClick={this.vitesseFois100} color="success" className="m-2"> Faites donc copuler ces énergumènes </Button>
               <Button onClick={this.boutonStopImage} color="danger" className="m-2"> Arrêter la copulation immédiatement </Button>
-              <RandomSentence displaySentence = {true}/>
             </div>
           </Row>
       </Container>
