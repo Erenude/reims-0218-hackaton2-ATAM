@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Container, Button, Row, Col } from 'reactstrap';
 import ListCharacters from './ListCharacters'
 import TestHidden from './TestHidden'
-import Carousel from './Carousel'
 import RandomSentence from './RandomSentence'
 
 class CharactersContainer extends Component {
@@ -14,9 +13,16 @@ class CharactersContainer extends Component {
             colLeft: [],
             colRight: [],
             persoLeft: [],
-            persoRight: []
+            persoRight: [],
+            characters: [],
+            buttonStopAndMatch: false,
+            buttonPageReset: false
         }
         this.randomCharacters = this.randomCharacters.bind(this)
+        this.vitesseFois100 = this.vitesseFois100.bind(this)
+        this.boutonStopImage = this.boutonStopImage.bind(this)
+        this.buttonPageReset = this.buttonPageReset.bind(this)
+        this.speed = 3000
     }
 
     randomCharacters() {
@@ -39,23 +45,65 @@ class CharactersContainer extends Component {
       })
     }
 
+vitesseFois100() {
+  clearInterval(this.eventRandomImage)
+  this.eventRandomImage = setInterval(this.randomCharacters, 1500)
+}
+
+boutonStopImage() {
+  clearInterval(this.eventRandomImage)
+  this.setState({
+    buttonStopAndMatch: true
+  })
+}
+
+buttonPageReset() {
+  this.setState({
+    beforeClickButton: true
+  })
+}
+
+refreshPage(){ window.parent.location = window.parent.location.href; }
+
     render() {
       if (this.state.beforeClickButton) {
         return <div>
-          <Carousel />
           <TestHidden />
-          <Button onClick={this.randomCharacters}> Coucou </Button></div>
+          <Button onClick={this.randomCharacters}> Commencer la reproduction </Button></div>
       }
+
+      if (this.state.buttonStopAndMatch === true) {
         return <Container>
-          <Row>
-            <Col xs="6">
+            <h1> {this.state.persoLeft.name} & {this.state.persoRight.name} </h1>
+            <Row className="justify-content-center">
+              <Col xs="4" className="m-1">
+            <ListCharacters characters={this.state.persoLeft}/>
+          </Col>
+            <Col xs="3" className="m-1">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/CG_Heart.gif" className="img-fluid" alt="heart"/>
+            </Col>
+            <Col xs="4" className="m-1">
+            <ListCharacters characters={this.state.persoRight}/>
+          </Col>
+        </Row>
+            <RandomSentence displaySentence = {true}/>
+            <Button onClick={this.refreshPage}> Quitte cette page </Button>
+             <Button onClick={this.boutonStopImage} color="danger" className="m-2"> La petite phrase sympatoche </Button>
+          </Container>
+      }
+
+        return <Container>
+          <Row className="justify-content-center">
+            <Col xs="5" className="m-1">
           <ListCharacters characters={this.state.persoLeft}/>
         </Col>
-        <Col xs="6">
+        <Col xs="5" className="m-1">
            <ListCharacters characters={this.state.persoRight}/>
          </Col>
-          <Button onClick={this.randomCharacters}> Coucou </Button>
-          <RandomSentence displaySentence = {true}/>
+            <div className="mx-auto">
+              <Button onClick={this.vitesseFois100} color="success" className="m-2"> Faites donc copuler ces énergumènes </Button>
+              <Button onClick={this.boutonStopImage} color="danger" className="m-2"> Arrêter la copulation immédiatement </Button>
+            </div>
           </Row>
       </Container>
     }
@@ -69,7 +117,8 @@ class CharactersContainer extends Component {
             const colRight = characters.filter(character => character.id > 44)
             this.setState({
               colLeft,
-              colRight
+              colRight,
+              characters
             })
         })
     }
