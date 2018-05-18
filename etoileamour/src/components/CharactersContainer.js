@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Container, Button, Row, Col } from 'reactstrap';
 import ListCharacters from './ListCharacters'
 import TestHidden from './TestHidden'
-import Carousel from './Carousel'
 import RandomSentence from './RandomSentence'
 
 class CharactersContainer extends Component {
@@ -14,9 +13,13 @@ class CharactersContainer extends Component {
             colLeft: [],
             colRight: [],
             persoLeft: [],
-            persoRight: []
+            persoRight: [],
+            characters: []
         }
         this.randomCharacters = this.randomCharacters.bind(this)
+        this.vitesseFois100 = this.vitesseFois100.bind(this)
+        this.boutonStopImage = this.boutonStopImage.bind(this)
+        this.speed = 3000
     }
 
     randomCharacters() {
@@ -39,23 +42,35 @@ class CharactersContainer extends Component {
       })
     }
 
+vitesseFois100() {
+  clearInterval(this.eventRandomImage)
+  this.eventRandomImage = setInterval(this.randomCharacters, 500)
+}
+
+boutonStopImage() {
+  clearInterval(this.eventRandomImage)
+}
+
+
     render() {
       if (this.state.beforeClickButton) {
         return <div>
-          <Carousel />
           <TestHidden />
           <Button onClick={this.randomCharacters}> Coucou </Button></div>
       }
         return <Container>
-          <Row>
-            <Col xs="6">
+          <Row className="justify-content-center">
+            <Col xs="5" className="m-1">
           <ListCharacters characters={this.state.persoLeft}/>
         </Col>
-        <Col xs="6">
+        <Col xs="5" className="m-1">
            <ListCharacters characters={this.state.persoRight}/>
          </Col>
-          <Button onClick={this.randomCharacters}> Coucou </Button>
-          <RandomSentence displaySentence = {true}/>
+            <div className="mx-auto">
+              <Button onClick={this.vitesseFois100} color="success" className="m-2"> Faites donc copuler ces énergumènes </Button>
+              <Button onClick={this.boutonStopImage} color="danger" className="m-2"> Arrêter la copulation immédiatement </Button>
+              <RandomSentence displaySentence = {true}/>
+            </div>
           </Row>
       </Container>
     }
@@ -69,7 +84,8 @@ class CharactersContainer extends Component {
             const colRight = characters.filter(character => character.id > 44)
             this.setState({
               colLeft,
-              colRight
+              colRight,
+              characters
             })
         })
     }

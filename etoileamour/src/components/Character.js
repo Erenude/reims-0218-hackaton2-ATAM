@@ -1,8 +1,7 @@
 import React from 'react'
-import { Card, CardBody } from 'reactstrap';
 
-const Character = ({ name, image }) => <Card>
-        <CardBody> <img src = { image } alt = { name } className = "img-fluid imgCharacter"/>
-    </CardBody></Card>
+const Character = ({ name, image }) => <div className="justify-content-center">
+        <img src = { image } alt = { name } className = "img-fluid imgCharacter"/>
+    </div>
 
 export default Character

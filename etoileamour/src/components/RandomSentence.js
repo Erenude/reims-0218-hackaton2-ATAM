@@ -8,7 +8,10 @@ const sentences = [
     'Cette relation sera la plus toride de toute la galaxie',
     'Le feu de la passion brûle en vous',
     'Votre amour sera plus fort que la force',
-    'Votre amour viendra à bout du côté obscur, enfin pas trop quand même !'
+    'Votre amour viendra à bout du côté obscur, enfin pas trop quand même !',
+    'Cet amour sera même plus fort que l\'amour entre Dorian et Khalid',
+    'Ca va envoyer dans le lit !',
+    ''
 ]
 
 const getRandomSentence = () => {
@@ -34,7 +37,9 @@ componentWillReceiveProps (props) {
   render() {
     return (
       <div>
-      {this.state.chosenSentence}
+        <h2>
+          {this.state.chosenSentence}
+        </h2>
       </div>
     )}
 }
