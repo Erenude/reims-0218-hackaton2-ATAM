@@ -15,11 +15,13 @@ class CharactersContainer extends Component {
             persoLeft: [],
             persoRight: [],
             characters: [],
-            buttonStopAndMatch: false
+            buttonStopAndMatch: false,
+            buttonPageReset: false
         }
         this.randomCharacters = this.randomCharacters.bind(this)
         this.vitesseFois100 = this.vitesseFois100.bind(this)
         this.boutonStopImage = this.boutonStopImage.bind(this)
+        this.buttonPageReset = this.buttonPageReset.bind(this)
         this.speed = 3000
     }
 
@@ -55,6 +57,13 @@ boutonStopImage() {
   })
 }
 
+buttonPageReset() {
+  this.setState({
+    beforeClickButton: true
+  })
+}
+
+refreshPage(){ window.parent.location = window.parent.location.href; }
 
     render() {
       if (this.state.beforeClickButton) {
@@ -62,6 +71,7 @@ boutonStopImage() {
           <TestHidden />
           <Button onClick={this.randomCharacters}> Commencer la reproduction </Button></div>
       }
+
       if (this.state.buttonStopAndMatch === true) {
         return <Container>
             <h1> {this.state.persoLeft.name} & {this.state.persoRight.name} </h1>
@@ -77,9 +87,11 @@ boutonStopImage() {
           </Col>
         </Row>
             <RandomSentence displaySentence = {true}/>
+            <Button onClick={this.refreshPage}> Quitte cette page </Button>
              <Button onClick={this.boutonStopImage} color="danger" className="m-2"> La petite phrase sympatoche </Button>
           </Container>
       }
+
         return <Container>
           <Row className="justify-content-center">
             <Col xs="5" className="m-1">
