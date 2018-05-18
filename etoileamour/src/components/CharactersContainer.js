@@ -71,7 +71,7 @@ refreshPage(){ window.parent.location = window.parent.location.href; }
       if (this.state.beforeClickButton) {
         return <div>
           <TestHidden />
-          <Button onClick={this.randomCharacters}> Commencer la reproduction </Button></div>
+          <Button onClick={this.randomCharacters} color="danger"> Commencer la reproduction </Button></div>
       }
 
       if (this.state.buttonStopAndMatch === true) {
@@ -89,7 +89,7 @@ refreshPage(){ window.parent.location = window.parent.location.href; }
             </Col>
           </Row>
           <RandomSentence displaySentence = {true}/>
-          <Button onClick={this.refreshPage} className="mr-5 mb-5"> Recommencer </Button>
+          <Button onClick={this.refreshPage} color="danger" className="mr-5 mb-5"> Recommencer </Button>
           <Button onClick={this.boutonStopImage} color="danger" className="ml-5 mb-5" > Prédiction de votre amour </Button>
         </Container>
       }
@@ -103,7 +103,7 @@ refreshPage(){ window.parent.location = window.parent.location.href; }
            <ListCharacters characters={this.state.persoRight}/>
          </Col>
             <div className="mx-auto">
-              <Button onClick={this.vitesseFois100} color="success" className="mt-5 mr-3 mb-5"> Lancer la roue </Button>
+              <Button onClick={this.vitesseFois100} color="danger" className="mt-5 mr-3 mb-5"> Lancer la roue </Button>
               <Button onClick={this.boutonStopImage} color="danger" className="mt-5 ml-3 mb-5"> Stopper la roue </Button>
             </div>
           </Row>

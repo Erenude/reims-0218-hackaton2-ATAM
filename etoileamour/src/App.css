@@ -54,3 +54,17 @@ p,
     color: #F8F8FF;
     font-family: 'Bad Script', cursive;
 }
+
+.btn-danger {
+    background: rgb(255, 53, 123);
+    color: #ffffff;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger {
+    background: rgb(135, 22, 18);
+}
+
+.btn-danger:active, .btn-danger.active {
+    background: rgb(255, 53, 123);
+    box-shadow: none;
+}
