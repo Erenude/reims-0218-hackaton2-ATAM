@@ -33,5 +33,24 @@
 
 .imgCharacter {
     width: 200px;
-    height: 350px;
+    height: 300px;
+    border-radius: 15px;
+}
+.coeur-beautiful {
+    margin-top: 93.75px;
+}
+
+body,
+.App,
+html {
+    background-color: #000;
+}
+
+h1,
+h2,
+h3,
+p,
+.btn {
+    color: #F8F8FF;
+    font-family: 'Bad Script', cursive;
 }

@@ -4,6 +4,8 @@ import ListCharacters from './ListCharacters'
 import TestHidden from './TestHidden'
 import RandomSentence from './RandomSentence'
 
+import '../App.css'
+
 class CharactersContainer extends Component {
 
     constructor() {
@@ -47,7 +49,7 @@ class CharactersContainer extends Component {
 
 vitesseFois100() {
   clearInterval(this.eventRandomImage)
-  this.eventRandomImage = setInterval(this.randomCharacters, 1500)
+  this.eventRandomImage = setInterval(this.randomCharacters, 30)
 }
 
 boutonStopImage() {
@@ -74,35 +76,35 @@ refreshPage(){ window.parent.location = window.parent.location.href; }
 
       if (this.state.buttonStopAndMatch === true) {
         return <Container>
-            <h1> {this.state.persoLeft.name} & {this.state.persoRight.name} </h1>
+            <h1 className="mb-5"> {this.state.persoLeft.name} & {this.state.persoRight.name} </h1>
             <Row className="justify-content-center">
               <Col xs="4" className="m-1">
-            <ListCharacters characters={this.state.persoLeft}/>
-          </Col>
-            <Col xs="3" className="m-1">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/CG_Heart.gif" className="img-fluid" alt="heart"/>
+                <ListCharacters characters={this.state.persoLeft}/>
+              </Col>
+              <Col xs="3" className="m-1">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/CG_Heart.gif" className="img-fluid coeur-beautiful" alt="heart"/>
+              </Col>
+              <Col xs="4" className="m-1">
+              <ListCharacters characters={this.state.persoRight}/>
             </Col>
-            <Col xs="4" className="m-1">
-            <ListCharacters characters={this.state.persoRight}/>
-          </Col>
-        </Row>
-            <RandomSentence displaySentence = {true}/>
-            <Button onClick={this.refreshPage}> Quitte cette page </Button>
-             <Button onClick={this.boutonStopImage} color="danger" className="m-2"> La petite phrase sympatoche </Button>
-          </Container>
+          </Row>
+          <RandomSentence displaySentence = {true}/>
+          <Button onClick={this.refreshPage} className="mr-5 mb-5"> Recommencer </Button>
+          <Button onClick={this.boutonStopImage} color="danger" className="ml-5 mb-5" > Prédiction de votre amour </Button>
+        </Container>
       }
 
         return <Container>
           <Row className="justify-content-center">
-            <Col xs="5" className="m-1">
+            <Col xs="5" className="mt-5">
           <ListCharacters characters={this.state.persoLeft}/>
         </Col>
-        <Col xs="5" className="m-1">
+        <Col xs="5" className="mt-5">
            <ListCharacters characters={this.state.persoRight}/>
          </Col>
             <div className="mx-auto">
-              <Button onClick={this.vitesseFois100} color="success" className="m-2"> Faites donc copuler ces énergumènes </Button>
-              <Button onClick={this.boutonStopImage} color="danger" className="m-2"> Arrêter la copulation immédiatement </Button>
+              <Button onClick={this.vitesseFois100} color="success" className="mt-5 mr-3 mb-5"> Lancer la roue </Button>
+              <Button onClick={this.boutonStopImage} color="danger" className="mt-5 ml-3 mb-5"> Stopper la roue </Button>
             </div>
           </Row>
       </Container>

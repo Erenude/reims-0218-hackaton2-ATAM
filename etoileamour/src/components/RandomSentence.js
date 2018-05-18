@@ -38,7 +38,7 @@ componentWillReceiveProps (props) {
   render() {
     return (
       <div>
-        <h2>
+        <h2 className="mt-5 mb-5">
           {this.state.chosenSentence}
         </h2>
       </div>
