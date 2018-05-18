@@ -9,7 +9,7 @@ const sentences = [
     'Le feu de la passion brûle en vous',
     'Votre amour sera plus fort que la force',
     'Votre amour viendra à bout du côté obscur, enfin pas trop quand même !'
-];
+]
 
 const getRandomSentence = () => {
   return sentences[Math.floor(Math.random() * (sentences.length - 1))]
@@ -17,15 +17,13 @@ const getRandomSentence = () => {
 
 class RandomSentence extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       chosenSentence: ''
     }
   }
 
 componentWillReceiveProps (props) {
-  console.log(props)
-  console.log(this.props)
   if (props.displaySentence) {
     this.setState ({
       chosenSentence: getRandomSentence()

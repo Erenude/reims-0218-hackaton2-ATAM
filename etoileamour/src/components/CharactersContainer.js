@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Button } from 'reactstrap';
+import { Container, Button, Row, Col } from 'reactstrap';
 import ListCharacters from './ListCharacters'
 import TestHidden from './TestHidden'
 import Carousel from './Carousel'
@@ -20,26 +20,23 @@ class CharactersContainer extends Component {
     }
 
     randomCharacters() {
-      console.log("on clique sur le bouton")
       const leftColumn = Math.round(Math.random() * this.state.colLeft.length)
       const rightColumn = Math.round(Math.random() * this.state.colRight.length + this.state.colRight.length)
-      console.log(leftColumn)
-      console.log(rightColumn)
-      console.log(this.state.colLeft.forEach((user) => {
+      this.state.colLeft.forEach((user) => {
         if (user.id === leftColumn) {
           this.setState({
             persoLeft: user,
             beforeClickButton: false
           })
         }
-      }))
-      console.log(this.state.colRight.forEach((user) => {
+      })
+      this.state.colRight.forEach((user) => {
         if (user.id === rightColumn) {
           this.setState({
             persoRight: user
           })
         }
-      }))
+      })
     }
 
     render() {
@@ -47,18 +44,23 @@ class CharactersContainer extends Component {
         return <div>
           <Carousel />
           <TestHidden />
-          <Button onClick={this.randomCharacters}> Coucou</Button></div>
+          <Button onClick={this.randomCharacters}> Coucou </Button></div>
       }
         return <Container>
+          <Row>
+            <Col xs="6">
           <ListCharacters characters={this.state.persoLeft}/>
+        </Col>
+        <Col xs="6">
            <ListCharacters characters={this.state.persoRight}/>
-          <Button onClick={this.randomCharacters}> Coucou</Button>
+         </Col>
+          <Button onClick={this.randomCharacters}> Coucou </Button>
           <RandomSentence displaySentence = {true}/>
+          </Row>
       </Container>
     }
 
     componentDidMount() {
-        console.log('characters did mount')
         const url = 'https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json'
         fetch(url)
         .then(res => res.json())
